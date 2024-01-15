@@ -11,13 +11,13 @@ function App() {
       <div className="app">
         <Routes>
           <Route path="/" element={[<Header key="header" />, <Home key="home" />]} />
-          <Route path='/' element={<Checkout />} />
-          {/* <Route path='/' element=<Route path="/" element={[<Header key="header" />, <Home key="home" />]} />
-          <Route path='/' element={<Home />} /> */}
-        </Routes>
+          <Route path="/checkout" element={[<Header key="header" />, <Checkout key="Checkout" />]} />
+          {/* <Route path='/checkout' element={<Checkout />} /> */}
+          </Routes>
       </div>
     </Router>
   );
 }
 
 export default App;
+ 
