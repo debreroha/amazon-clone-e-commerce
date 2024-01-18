@@ -1,10 +1,12 @@
 import React, { useState } from 'react'
 import './Login.css'
 import {Link} from 'react-router-dom'
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
-// import  {auth}  from './firebase'
+import auth  from './firebase'
+
+
  
 function Login() {
+
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState()
 
@@ -15,23 +17,19 @@ function Login() {
   }
 
   const register = e => {
-    e.preventDefault()
-    const auth = getAuth()
-    createUserWithEmailAndPassword(auth, email, password)
-      .then((auth) => {
-        console.log(auth)
-      })
-      .catch(error => alert(error.message))
+    e.preventDefault();
 
-    // do some firebase to register
-    // auth.createUserWithEmailAndPassword(email, password)
-    //   .then((auth) => {
-    //     // it succefully creates a new user with email and password
-    //     console.log(auth)
-    //   })
-    //   .catch(error => alert(error.message))
-
-  } 
+    auth
+        .createUserWithEmailAndPassword(email, password)
+        .then((auth) => {
+            // it successfully created a new user with email and password
+            if (auth) {
+                // history.push('/')
+                console.log(auth)
+            }
+        })
+        .catch(error => alert(error.message))
+}
 
   return (
     <div className='login'>
