@@ -1,7 +1,10 @@
 import React, { useState } from 'react'
 import './Login.css'
 import {Link} from 'react-router-dom'
-// import auth  from './firebase'
+import auth  from './firebase'
+// import { onAuthStateChanged } from "firebase/auth";
+
+
 
 
  
@@ -19,17 +22,18 @@ function Login() {
 
   const register = e => {
     e.preventDefault();
+    
+    console.log(auth)
 
-    // auth
-    //     .createUserWithEmailAndPassword(email, password)
-    //     .then((auth) => {
-    //         // it successfully created a new user with email and password
-    //         if (auth) {
-    //             // history.push('/')
-    //             console.log(auth)
-    //         }
-    //     })
-    //     .catch(error => alert(error.message))
+
+    // auth().createUserWithEmailAndPassword(email, password).then((auth) => {
+    //       // it successfully created a new user with email and password
+    //       if (auth) {
+    //           // history.push('/')
+    //           console.log(auth)
+    //       }
+    //   })
+    //   .catch(error => alert(error.message))
 }
 
   return (
