@@ -22,19 +22,19 @@ function Login() {
   const register = async (e) => {
     e.preventDefault();
     try{
-      const userCredential = await createUserWithEmailAndPassword(auth, email, password)
-      // .then((userCredential) => {
+      await createUserWithEmailAndPassword(auth, email, password)
+      .then((auth) => {
       // Signed up 
       // const user = userCredential.user;
-      console.log(userCredential.user)
+      console.log(auth)
       
       // ...
-      // })
+      })
     }
     catch(error) {
-      // const errorCode = error.code;
-      // const errorMessage = error.message;
-      console.log(error)
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      console.log(errorMessage)
     
       // ..
     };
