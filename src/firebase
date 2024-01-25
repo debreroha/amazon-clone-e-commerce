@@ -1,6 +1,5 @@
 // firebase.js
 // compat packages are API compatible with namespaced code
-import  { useState } from 'react'
 import {  getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword  } from "firebase/auth";
 import { initializeApp } from "firebase/app";
 
