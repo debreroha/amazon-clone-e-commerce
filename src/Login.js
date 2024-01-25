@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword  } from "firebase/auth";
+
+
 import './Login.css'
 import {Link} from 'react-router-dom'
 import auth  from './firebase'
-// import { onAuthStateChanged } from "firebase/auth";
-
-
 
 
  
@@ -18,23 +18,27 @@ function Login() {
 
     // do some firabase to signin
   }
-
-
-  const register = e => {
+  
+  const register = async (e) => {
     e.preventDefault();
+    try{
+      const userCredential = await createUserWithEmailAndPassword(auth, email, password)
+      // .then((userCredential) => {
+      // Signed up 
+      // const user = userCredential.user;
+      console.log(userCredential.user)
+      
+      // ...
+      // })
+    }
+    catch(error) {
+      // const errorCode = error.code;
+      // const errorMessage = error.message;
+      console.log(error)
     
-    console.log(auth)
-
-
-    // auth().createUserWithEmailAndPassword(email, password).then((auth) => {
-    //       // it successfully created a new user with email and password
-    //       if (auth) {
-    //           // history.push('/')
-    //           console.log(auth)
-    //       }
-    //   })
-    //   .catch(error => alert(error.message))
-}
+      // ..
+    };
+  }
 
   return (
     <div className='login'>
