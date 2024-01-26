@@ -6,7 +6,7 @@ import {Link} from 'react-router-dom'
 import auth  from './firebase'
  
 function Login() {
-
+  
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState()
 
@@ -20,10 +20,10 @@ function Login() {
     e.preventDefault();
     try{
       await createUserWithEmailAndPassword(auth, email, password)
-      .then((auth) => {
+      .then((userCredential) => {
       // Signed up 
-      // const user = userCredential.user;
-      console.log(auth)
+      const user = userCredential.user;
+      console.log(user)
       
       // ...
       })
