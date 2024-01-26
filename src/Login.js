@@ -1,12 +1,9 @@
 import React, { useState } from 'react'
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword  } from "firebase/auth";
 
-
 import './Login.css'
 import {Link} from 'react-router-dom'
 import auth  from './firebase'
-
-
  
 function Login() {
 
