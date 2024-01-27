@@ -19,8 +19,10 @@ function Login() {
   const register = async (e) => {
     e.preventDefault();
 
-    auth.createUserWithEmailAndPassword(email, password).then((auth) =>{
-      console.log(auth)
+    createUserWithEmailAndPassword(auth, email, password).then((auth) =>{
+      if(auth){
+        console.log(auth)
+      }
     }).catch(error => alert(error.message))
   }
 
