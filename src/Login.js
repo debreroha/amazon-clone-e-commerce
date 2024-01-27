@@ -18,23 +18,10 @@ function Login() {
   
   const register = async (e) => {
     e.preventDefault();
-    try{
-      await createUserWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-      // Signed up 
-      const user = userCredential.user;
-      console.log(user)
-      
-      // ...
-      })
-    }
-    catch(error) {
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      console.log(errorMessage)
-    
-      // ..
-    };
+
+    auth.createUserWithEmailAndPassword(email, password).then((auth) =>{
+      console.log(auth)
+    }).catch(error => alert(error.message))
   }
 
   return (
